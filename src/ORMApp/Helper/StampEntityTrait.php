@@ -1,27 +1,19 @@
 <?php
 namespace ORMApp\Helper;
 
-/** @Entity */
+use Doctrine\ORM\Mapping AS ORM;
+
 trait StampEntityTrait {
     /**
-     * @Doctrine\ORM\Mapping\Id
-     * @Doctrine\ORM\Mapping\GeneratedValue(strategy="AUTO")
-     * @Doctrine\ORM\Mapping\Column(type="integer")
+     * @var int
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Column(type="integer")
      */
     private $id;
 
     /**
-     * @Doctrine\ORM\Mapping\Column(type="datetime")
-     */
-    private $created;
-
-    /**
-     * @Doctrine\ORM\Mapping\Column(type="datetime")
-     */
-    private $modified;
-
-    /**
-     * @return mixed
+     * @return int
      */
     public function getId()
     {
@@ -29,7 +21,7 @@ trait StampEntityTrait {
     }
 
     /**
-     * @param mixed $id
+     * @param int $id
      */
     public function setId($id)
     {
@@ -37,7 +29,19 @@ trait StampEntityTrait {
     }
 
     /**
-     * @return mixed
+     * @var \DateTime
+     * @ORM\Column(type="datetime")
+     */
+    private $created;
+
+    /**
+     * @var \DateTime
+     * @ORM\Column(type="datetime")
+     */
+    private $modified;
+
+    /**
+     * @return \DateTime
      */
     public function getCreated()
     {
@@ -45,7 +49,7 @@ trait StampEntityTrait {
     }
 
     /**
-     * @param mixed $created
+     * @param \DateTime $created
      */
     public function setCreated($created)
     {
@@ -53,7 +57,7 @@ trait StampEntityTrait {
     }
 
     /**
-     * @return mixed
+     * @return \DateTime
      */
     public function getModified()
     {
@@ -61,7 +65,7 @@ trait StampEntityTrait {
     }
 
     /**
-     * @param mixed $modified
+     * @param \DateTime $modified
      */
     public function setModified($modified)
     {
