@@ -31,8 +31,8 @@ $applicationInitializer = new Synapse\ApplicationInitializer;
 $app = $applicationInitializer->initialize();
 
 // Set the default services
-$defaultServices = new Synapse\Application\Services;
-$defaultServices->register($app);
+//$defaultServices = new Synapse\Application\Services;
+//$defaultServices->register($app);
 
 // Set the application-specific  services
 $appServices = new MapperApp\Services;

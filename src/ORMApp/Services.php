@@ -2,6 +2,8 @@
 
 namespace ORMApp;
 
+use B2k\Doc\DocServiceProvider;
+use Dflydev\Silex\Provider\DoctrineOrm\DoctrineOrmServiceProvider;
 use Silex\Provider\DoctrineServiceProvider;
 use Synapse\Application\ServicesInterface;
 use Synapse\Application;
@@ -43,6 +45,29 @@ class Services implements ServicesInterface
 
 //        $app->register(new \Silex\Provider\ValidatorServiceProvider);
         $app->register(new \Silex\Provider\UrlGeneratorServiceProvider);
-        $app->register(new DoctrineServiceProvider());
+
+        $app->register(new DoctrineServiceProvider, [
+            'db.options' => [
+                'driver' => 'pdo_mysql',
+                'dbname' => 'datamapps',
+                'user' => 'root',
+                'host' => '127.0.0.1',
+            ]
+        ]);
+
+        $app->register(new DoctrineOrmServiceProvider, [
+            'orm.proxies_dir' => APPDIR.'/proxies',
+            'orm.em.options' => [
+                'mappings' => [
+                    [
+                        'type' => 'annotation',
+                        'namespace' => 'ORMApp\Entities',
+                        'resource_namespace' => 'ORMApp\Entities',
+                    ]
+                ]
+            ]
+        ]);
+
+        $app->register(new DocServiceProvider());
     }
 }
