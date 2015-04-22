@@ -4,6 +4,8 @@ namespace ORMApp;
 
 use B2k\Doc\DocServiceProvider;
 use Dflydev\Silex\Provider\DoctrineOrm\DoctrineOrmServiceProvider;
+use Doctrine\DBAL\Migrations\Configuration\Configuration;
+use ORMApp\Console\TestCommandServiceProvider;
 use Silex\Provider\DoctrineServiceProvider;
 use Synapse\Application\ServicesInterface;
 use Synapse\Application;
@@ -69,6 +71,10 @@ class Services implements ServicesInterface
             ]
         ]);
 
-        $app->register(new DocServiceProvider());
+        $app->register(new DocServiceProvider, [
+            'migrations.directory' => APPDIR.'/DocMigrations'
+        ]);
+
+        $app->register(new TestCommandServiceProvider);
     }
 }

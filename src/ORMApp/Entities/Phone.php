@@ -19,7 +19,6 @@ class Phone {
 
     /**
      * @var Person
-     * @ORM\Column(type="integer")
      * @ORM\ManyToOne(targetEntity="Person", inversedBy="phones")
      */
     private $person;
@@ -34,10 +33,12 @@ class Phone {
 
     /**
      * @param string $phoneNumber
+     * @return $this
      */
     public function setPhoneNumber($phoneNumber)
     {
         $this->phoneNumber = $phoneNumber;
+        return $this;
     }
 
     /**
@@ -50,10 +51,12 @@ class Phone {
 
     /**
      * @param Person $person
+     * @return $this
      */
     public function setPerson($person)
     {
         $this->person = $person;
+        return $this;
     }
 
 }

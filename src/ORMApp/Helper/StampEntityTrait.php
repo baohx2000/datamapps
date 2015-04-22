@@ -50,10 +50,12 @@ trait StampEntityTrait {
 
     /**
      * @param \DateTime $created
+     * @return $this
      */
     public function setCreated($created)
     {
         $this->created = $created;
+        return $this;
     }
 
     /**
@@ -66,9 +68,11 @@ trait StampEntityTrait {
 
     /**
      * @param \DateTime $modified
+     * @return $this
      */
     public function setModified($modified)
     {
         $this->modified = $modified;
+        return $this;
     }
 }

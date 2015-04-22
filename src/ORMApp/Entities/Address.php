@@ -49,7 +49,6 @@ class Address {
 
     /**
      * @var Person
-     * @@ORM\Column(type="string")
      * @ORM\ManyToOne(targetEntity="Person")
      */
     private $person;
@@ -64,10 +63,12 @@ class Address {
 
     /**
      * @param Person $person
+     * @return $this
      */
     public function setPerson($person)
     {
         $this->person = $person;
+        return $this;
     }
 
     /**
@@ -80,10 +81,12 @@ class Address {
 
     /**
      * @param string $line1
+     * @return $this
      */
     public function setLine1($line1)
     {
         $this->line1 = $line1;
+        return $this;
     }
 
     /**
@@ -96,10 +99,12 @@ class Address {
 
     /**
      * @param string $line2
+     * @return $this
      */
     public function setLine2($line2)
     {
         $this->line2 = $line2;
+        return $this;
     }
 
     /**
@@ -112,10 +117,12 @@ class Address {
 
     /**
      * @param string $city
+     * @return $this
      */
     public function setCity($city)
     {
         $this->city = $city;
+        return $this;
     }
 
     /**
@@ -128,10 +135,12 @@ class Address {
 
     /**
      * @param string $state
+     * @return $this
      */
     public function setState($state)
     {
         $this->state = $state;
+        return $this;
     }
 
     /**
@@ -144,9 +153,11 @@ class Address {
 
     /**
      * @param string $postalCode
+     * @return $this
      */
     public function setPostalCode($postalCode)
     {
         $this->postalCode = $postalCode;
+        return $this;
     }
 }
