@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/baohx2000/doc.git",
-                "reference": "7a9e148560bf633810cb5689bda4c3ba09da19db"
+                "reference": "293cc53d55bf65670f5368fca82b85f3d06e7227"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/baohx2000/doc/zipball/7a9e148560bf633810cb5689bda4c3ba09da19db",
-                "reference": "7a9e148560bf633810cb5689bda4c3ba09da19db",
+                "url": "https://api.github.com/repos/baohx2000/doc/zipball/293cc53d55bf65670f5368fca82b85f3d06e7227",
+                "reference": "293cc53d55bf65670f5368fca82b85f3d06e7227",
                 "shasum": ""
             },
             "require": {
@@ -50,7 +50,7 @@
                 "source": "https://github.com/baohx2000/doc/tree/master",
                 "issues": "https://github.com/baohx2000/doc/issues"
             },
-            "time": "2015-04-22 01:31:26"
+            "time": "2015-04-22 03:41:41"
         },
         {
             "name": "bshaffer/oauth2-server-httpfoundation-bridge",
