@@ -74,5 +74,29 @@ class TestCommand extends Command {
         $end = microtime(true);
         $diff = $end-$start;
         $output->writeln('Took '.$diff.'s');
+
+        $em->clear();
+
+        $output->writeln('Loading them back up');
+        $memStart = memory_get_usage();
+        $start = microtime(true);
+        $people = $em->getRepository(Entities\Person::class)
+            ->findAll();
+        $end = microtime(true);
+        $diff = $end-$start;
+        $memEnd = memory_get_usage();
+        $output->writeln('Loaded '.count($people).' records');
+        $output->writeln('Used '.$memEnd - $memStart.' bytes');
+        $output->writeln('Took '.$diff.'s');
+
+        $output->writeln('Removing them');
+        $start = microtime(true);
+        foreach($people as $person) {
+            $em->remove($person);
+        }
+        $em->flush();
+        $end = microtime(true);
+        $diff = $end-$start;
+        $output->writeln('Took '.$diff.'s');
     }
 }
