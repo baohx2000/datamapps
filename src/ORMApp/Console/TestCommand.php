@@ -10,7 +10,11 @@ namespace ORMApp\Console;
 
 
 use B2k\Doc\Helper\ManagerRegistryHelper;
+use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Query;
 use Doctrine\ORM\Tools\Console\Helper\EntityManagerHelper;
+use DoctrineProxy\__CG__\ORMApp\Entities\Person;
+use Entities\Address;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use ORMApp\Entities;
@@ -27,6 +31,7 @@ class TestCommand extends Command {
     {
         /** @var ManagerRegistryHelper $emHelper */
         $emHelper = $this->getHelper('doctrine');
+        /** @var EntityManagerInterface $em */
         $em = $emHelper->getManager('default');
 
         $output->writeln('Inserting 5000 records (1000 persons, each with 2 phones and 2 addresses');
@@ -75,7 +80,9 @@ class TestCommand extends Command {
         $diff = $end-$start;
         $output->writeln('Took '.$diff.'s');
 
-        $em->clear();
+        $em->clear(Entities\Person::class);
+        $em->clear(Entities\Address::class);
+        $em->clear(Entities\Phone::class);
 
         $output->writeln('Loading them back up');
         $memStart = memory_get_usage();
@@ -89,14 +96,28 @@ class TestCommand extends Command {
         $output->writeln('Used '.$memEnd - $memStart.' bytes');
         $output->writeln('Took '.$diff.'s');
 
-        $output->writeln('Removing them');
+        $em->clear(Entities\Person::class);
+        $em->clear(Entities\Address::class);
+        $em->clear(Entities\Phone::class);
+
+        $output->writeln('Loading via DQL: SELECT p FROM ORMApp\Entities\Person p INNER JOIN p.addresses a INNER JOIN p.phones ph');
         $start = microtime(true);
-        foreach($people as $person) {
-            $em->remove($person);
-        }
-        $em->flush();
+        $q = $em->createQuery("SELECT p FROM ORMApp\Entities\Person p INNER JOIN p.addresses a INNER JOIN p.phones ph");
+        $results = $q->setMaxResults(1000)->getResult();
         $end = microtime(true);
         $diff = $end-$start;
         $output->writeln('Took '.$diff.'s');
+
+//        $output->writeln('Removing them');
+//        $start = microtime(true);
+//        foreach($people as $person) {
+//            $em->remove($person);
+//        }
+//        $em->flush();
+//        $end = microtime(true);
+//        $diff = $end-$start;
+//        $output->writeln('Took '.$diff.'s');
+
+
     }
 }
