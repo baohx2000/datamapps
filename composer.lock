@@ -12,19 +12,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/baohx2000/doc.git",
-                "reference": "606258ab7231ab1e9f7759eab5dcea5f73d34010"
+                "reference": "7a9e148560bf633810cb5689bda4c3ba09da19db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/baohx2000/doc/zipball/606258ab7231ab1e9f7759eab5dcea5f73d34010",
-                "reference": "606258ab7231ab1e9f7759eab5dcea5f73d34010",
+                "url": "https://api.github.com/repos/baohx2000/doc/zipball/7a9e148560bf633810cb5689bda4c3ba09da19db",
+                "reference": "7a9e148560bf633810cb5689bda4c3ba09da19db",
                 "shasum": ""
             },
             "require": {
                 "dflydev/doctrine-orm-service-provider": "~1",
                 "doctrine/migrations": "1.0.*@dev",
                 "saxulum/saxulum-console": "~1",
-                "saxulum/saxulum-doctrine-orm-commands": "~1",
                 "saxulum/saxulum-doctrine-orm-manager-registry-provider": "~2"
             },
             "require-dev": {
@@ -51,7 +50,7 @@
                 "source": "https://github.com/baohx2000/doc/tree/master",
                 "issues": "https://github.com/baohx2000/doc/issues"
             },
-            "time": "2015-04-20 02:38:29"
+            "time": "2015-04-22 01:31:26"
         },
         {
             "name": "bshaffer/oauth2-server-httpfoundation-bridge",
@@ -1046,12 +1045,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jdesrosiers/silex-cors-provider.git",
-                "reference": "666d7868bc8889e18d5c38790987bbde89719c7c"
+                "reference": "78a58c40a37c95cdbbb01e39a6ab56e240940587"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jdesrosiers/silex-cors-provider/zipball/666d7868bc8889e18d5c38790987bbde89719c7c",
-                "reference": "666d7868bc8889e18d5c38790987bbde89719c7c",
+                "url": "https://api.github.com/repos/jdesrosiers/silex-cors-provider/zipball/78a58c40a37c95cdbbb01e39a6ab56e240940587",
+                "reference": "78a58c40a37c95cdbbb01e39a6ab56e240940587",
                 "shasum": ""
             },
             "require": {
@@ -1088,7 +1087,7 @@
                 "sharing",
                 "silex"
             ],
-            "time": "2015-04-17 05:31:35"
+            "time": "2015-04-21 17:34:56"
         },
         {
             "name": "lusitanian/oauth",
@@ -1532,80 +1531,6 @@
                 "silex"
             ],
             "time": "2014-01-30 20:41:31"
-        },
-        {
-            "name": "saxulum/saxulum-doctrine-orm-commands",
-            "version": "1.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/saxulum/saxulum-doctrine-orm-commands.git",
-                "reference": "51b43d5974d15d76156dc4fa6f11a64d7db675b9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/saxulum/saxulum-doctrine-orm-commands/zipball/51b43d5974d15d76156dc4fa6f11a64d7db675b9",
-                "reference": "51b43d5974d15d76156dc4fa6f11a64d7db675b9",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/orm": "~2.3",
-                "php": ">=5.3.3",
-                "symfony/console": "~2.3"
-            },
-            "require-dev": {
-                "dflydev/doctrine-orm-service-provider": "~1.0,>=1.0.4",
-                "phpunit/phpunit": "3.7.*",
-                "saxulum/saxulum-console": "~2.0",
-                "saxulum/saxulum-doctrine-orm-manager-registry-provider": "~2.2",
-                "silex/silex": "~1.1"
-            },
-            "suggest": {
-                "dflydev/doctrine-orm-service-provider": "~1.0.4",
-                "saxulum/saxulum-console": "~2.0",
-                "saxulum/saxulum-doctrine-orm-manager-registry-provider": "~2.2",
-                "silex/silex": "~1.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Saxulum\\DoctrineOrmCommands": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com",
-                    "homepage": "http://fabien.potencier.org",
-                    "role": "Lead Developer"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "http://symfony.com/contributors"
-                },
-                {
-                    "name": "Benjamin Eberlei",
-                    "email": "kontakt@beberlei.de"
-                },
-                {
-                    "name": "Dominik Zogg",
-                    "email": "dominik.zogg@gmail.com"
-                }
-            ],
-            "description": "Saxulum Doctrine ORM Commands",
-            "keywords": [
-                "cilex",
-                "commands",
-                "doctrine",
-                "orm",
-                "pimple",
-                "saxulum",
-                "silex"
-            ],
-            "time": "2014-05-01 10:40:30"
         },
         {
             "name": "saxulum/saxulum-doctrine-orm-manager-registry-provider",

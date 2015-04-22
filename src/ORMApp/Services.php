@@ -62,7 +62,8 @@ class Services implements ServicesInterface
                     [
                         'type' => 'annotation',
                         'namespace' => 'ORMApp\Entities',
-                        'path' => APPDIR.'/src',
+                        'path' => APPDIR.'/src/ORMApp/Entities',
+                        'use_simple_annotation_reader' => false,
                     ]
                 ]
             ]
