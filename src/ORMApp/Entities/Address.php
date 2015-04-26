@@ -25,7 +25,7 @@ class Address {
 
     /**
      * @var string
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
     private $line2;
 
@@ -43,7 +43,7 @@ class Address {
 
     /**
      * @var string
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", name="postal_code")
      */
     private $postalCode;
 

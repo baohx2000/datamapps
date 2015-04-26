@@ -15,13 +15,13 @@ class Person {
 
     /**
      * @var string
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", name="first_name")
      */
     private $firstName;
 
     /**
      * @var string
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", name="last_name")
      */
     private $lastName;
 
