@@ -131,6 +131,7 @@ class TestCommand extends Command
         $start = microtime(true);
 
         $people = $this->personMapper->findAll();
+        $output->writeln('Loaded '.$people->count().' records.');
         $peopleMap = [];
         $ids = [];
         // EntityIterators really should implement ArrayAccess so we can use array_map
