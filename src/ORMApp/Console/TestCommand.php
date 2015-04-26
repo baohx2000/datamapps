@@ -1,20 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: gordon
- * Date: 4/21/15
- * Time: 9:27 PM
- */
-
 namespace ORMApp\Console;
-
 
 use B2k\Doc\Helper\ManagerRegistryHelper;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Query;
-use Doctrine\ORM\Tools\Console\Helper\EntityManagerHelper;
-use DoctrineProxy\__CG__\ORMApp\Entities\Person;
-use Entities\Address;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;

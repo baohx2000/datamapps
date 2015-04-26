@@ -13,7 +13,7 @@ class Phone {
 
     /**
      * @var string
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", name="phone_number")
      */
     private $phoneNumber;
 
