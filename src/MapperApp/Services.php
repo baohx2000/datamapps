@@ -2,6 +2,7 @@
 
 namespace MapperApp;
 
+use MapperApp\Console\ConsoleServiceProvider;
 use Synapse\Application\ServicesInterface;
 use Synapse\Application;
 
@@ -42,5 +43,8 @@ class Services implements ServicesInterface
 
 //        $app->register(new \Silex\Provider\ValidatorServiceProvider);
         $app->register(new \Silex\Provider\UrlGeneratorServiceProvider);
+
+        $app->register(new ConsoleServiceProvider);
+        $app->register(new MapperAppServiceProvider);
     }
 }
