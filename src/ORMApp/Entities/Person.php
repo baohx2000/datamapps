@@ -44,7 +44,7 @@ class Person {
     }
 
     /**
-     * @return Address[]
+     * @return Address[]|Collection
      */
     public function getAddresses()
     {

@@ -19,31 +19,31 @@ class Address {
 
     /**
      * @var string
-     * @@ORM\Column(type="string")
+     * @ORM\Column(type="string")
      */
     private $line1;
 
     /**
      * @var string
-     * @@ORM\Column(type="string")
+     * @ORM\Column(type="string")
      */
     private $line2;
 
     /**
      * @var string
-     * @@ORM\Column(type="string")
+     * @ORM\Column(type="string")
      */
     private $city;
 
     /**
      * @var string
-     * @@ORM\Column(type="string")
+     * @ORM\Column(type="string")
      */
     private $state;
 
     /**
      * @var string
-     * @@ORM\Column(type="string")
+     * @ORM\Column(type="string")
      */
     private $postalCode;
 
