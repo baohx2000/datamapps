@@ -53,7 +53,7 @@ class Services implements ServicesInterface
                 'driver' => 'pdo_mysql',
                 'dbname' => 'datamapps',
                 'user' => 'root',
-                'pass' => 'root',
+                'password' => 'root',
                 'host' => '127.0.0.1',
             ]
         ]);
