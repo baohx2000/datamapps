@@ -18,7 +18,7 @@ class PersonEntity extends AbstractEntity
         'first_name' => null,
         'last_name' => null,
         'created' => null,
-
+        'modified' => null,
         'addresses' => [],
         'phones'    => [],
     ];

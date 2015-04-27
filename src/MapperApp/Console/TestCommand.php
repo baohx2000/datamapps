@@ -92,11 +92,13 @@ class TestCommand extends Command
                 ->exchangeArray([
                     'first_name' => 'Bob'.$i,
                     'last_name' => 'McBob',
+                    'modified' => date('Y-m-d H:i:s'),
                 ]);
             $this->personMapper->persist($person);
             for ($j = 0; $j < 2; $j++) {
                 $a = (new AddressEntity())
                     ->exchangeArray([
+                        'modified' => date('Y-m-d H:i:s'),
                         'person_id' => $person->getId(),
                         'line1' => '1233 N Mill Ave',
                         'city' => 'Tempe',
@@ -107,6 +109,7 @@ class TestCommand extends Command
 
                 $ph = (new PhoneEntity())
                     ->exchangeArray([
+                        'modified' => date('Y-m-d H:i:s'),
                         'person_id' => $person->getId(),
                         'phone_number' => '111-222-3333'
                     ]);

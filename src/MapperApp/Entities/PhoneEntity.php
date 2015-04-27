@@ -11,5 +11,6 @@ class PhoneEntity extends AbstractEntity
         'person_id' => null,
         'phone_number' => null,
         'created' => null,
+        'modified' => null,
     ];
 }

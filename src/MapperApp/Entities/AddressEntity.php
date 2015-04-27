@@ -10,6 +10,7 @@ class AddressEntity extends AbstractEntity
         'id' => null,
         'person_id' => null,
         'created' => null,
+        'modified' => null,
         'line1' => null,
         'line2' => null,
         'city' => null,
