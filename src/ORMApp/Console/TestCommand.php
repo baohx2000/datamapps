@@ -42,6 +42,9 @@ class TestCommand extends Command {
             case self::DO_READ:
                 $this->doRead($input, $output);
                 break;
+            case 'read2':
+                $this->doRead2($input, $output);
+                break;
             case self::DO_JOINREAD:
                 $this->doJoinRead($input, $output);
                 break;
@@ -114,24 +117,22 @@ class TestCommand extends Command {
 
     protected function doRead(InputInterface $input, OutputInterface $output)
     {
-//        $output->writeln('Loading them back up');
-        $memStart = memory_get_usage(true);
         $start = microtime(true);
         $people = $this->em->getRepository(Entities\Person::class)
             ->findAll();
         $end = microtime(true);
         $diff = $end-$start;
-        $memEnd = memory_get_usage(true);
 
         $output->writeln('Loaded '.count($people).' records');
-//        $output->writeln('Used '.$memEnd - $memStart.' bytes');
         $output->writeln('Took '.$diff.'s');
+    }
 
+    protected function doRead2(InputInterface $input, OutputInterface $output)
+    {
         $output->writeln('Loading via DQL: SELECT p, a, ph FROM ORMApp\Entities\Person p INNER JOIN p.addresses a INNER JOIN p.phones ph');
         $start = microtime(true);
         $q = $this->em->createQuery('SELECT p, a, ph FROM ORMApp\Entities\Person p INNER JOIN p.addresses a INNER JOIN p.phones ph');
-        $results = $q->setMaxResults(1000)->getResult(Query::HYDRATE_ARRAY);
-//        var_dump($results[0]);
+        $results = $q->setMaxResults(1000)->getResult();
         $end = microtime(true);
         $diff = $end-$start;
         $output->writeln('Took '.$diff.'s');
