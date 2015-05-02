@@ -27,13 +27,13 @@ class Person {
 
     /**
      * @var Address[]|Collection
-     * @ORM\OneToMany(targetEntity="Address", mappedBy="person", cascade={"persist", "remove"}, orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="Address", mappedBy="person", cascade={"persist", "remove"}, orphanRemoval=true, fetch="EAGER")
      */
     private $addresses;
 
     /**
      * @var Phone[]|Collection
-     * @ORM\OneToMany(targetEntity="Phone", mappedBy="person", cascade={"persist", "remove"}, orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="Phone", mappedBy="person", cascade={"persist", "remove"}, orphanRemoval=true, fetch="EAGER")
      */
     private $phones;
 
