@@ -19,6 +19,7 @@ class TestCommand extends Command
     const DO_READ = 'read';
     const DO_UPDATE = 'update';
     const DO_DELETE = 'delete';
+    const DO_JOINREAD = 'joinread';
 
     /**
      * @var PersonMapper
@@ -52,7 +53,7 @@ class TestCommand extends Command
             ->addArgument(
                 'do',
                 InputArgument::REQUIRED,
-                'create, read, update, or delete'
+                'create, read, joinread, update, or delete'
             );
     }
 
@@ -64,6 +65,9 @@ class TestCommand extends Command
                 break;
             case self::DO_READ:
                 $this->doRead($input, $output);
+                break;
+            case self::DO_JOINREAD:
+                $this->doJoinRead($input, $output);
                 break;
             case self::DO_UPDATE:
                 $this->doUpdate($input, $output);
@@ -160,6 +164,19 @@ class TestCommand extends Command
         $end = microtime(true);
         $diff = $end-$start;
         $output->writeln('Took '.$diff.'s');
+    }
+
+    private function doJoinRead(InputInterface $input, OutputInterface $output)
+    {
+        $ids = $this->personMapper
+            ->getDbAdapter()
+            ->query('SELECT id FROM addresses', Adapter::QUERY_MODE_EXECUTE)
+            ->toArray();
+        $start = microtime(true);
+        $people = $this->personMapper->findAllBy(['address_id' => array_column($ids, 'id')]);
+        $end = microtime(true);
+
+        $output->writeln('Read '.$people->count().' people in '.($end-$start).'s');
     }
 
     private function doUpdate(InputInterface $input, OutputInterface $output)

@@ -14,6 +14,7 @@ class TestCommand extends Command {
     const DO_READ = 'read';
     const DO_UPDATE = 'update';
     const DO_DELETE = 'delete';
+    const DO_JOINREAD = 'joinread';
 
     /**
      * @var EntityManagerInterface
@@ -40,6 +41,9 @@ class TestCommand extends Command {
                 break;
             case self::DO_READ:
                 $this->doRead($input, $output);
+                break;
+            case self::DO_JOINREAD:
+                $this->doJoinRead($input, $output);
                 break;
             case self::DO_UPDATE:
                 $this->doUpdate($input, $output);
@@ -94,6 +98,18 @@ class TestCommand extends Command {
         $end = microtime(true);
         $diff = $end-$start;
         $output->writeln('Took '.$diff.'s');
+    }
+
+    protected function doJoinRead(InputInterface $input, OutputInterface $output)
+    {
+        $ids = $this->em->getConnection()->fetchColumn('SELECT id FROM addresses');
+        $start = microtime(true);
+        $people = $this->em
+            ->createQuery('SELECT p, a FROM ORMApp\Entities\Person p INNER JOIN p.addresses a')
+            ->getResult();
+        $end = microtime(true);
+
+        $output->writeln('Read '.count($people).' people in '.($end-$start).'s');
     }
 
     protected function doRead(InputInterface $input, OutputInterface $output)
