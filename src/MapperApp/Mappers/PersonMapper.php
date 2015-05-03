@@ -28,7 +28,7 @@ class PersonMapper extends AbstractMapper
             $query->join(
                 'addresses',
                 'addresses.person_id = person.id',
-                ['id', 'line1'],
+                ['address_id' => 'id', 'line1' => 'line1'],
                 $query::JOIN_INNER
             );
         }

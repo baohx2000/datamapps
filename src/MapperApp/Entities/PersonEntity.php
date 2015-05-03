@@ -21,6 +21,9 @@ class PersonEntity extends AbstractEntity
         'modified' => null,
         'addresses' => [],
         'phones'    => [],
+        'address_id' => null,
+        'phone_id' => null,
+        'address' => null,
     ];
 
     public function getColumns()
@@ -28,8 +31,11 @@ class PersonEntity extends AbstractEntity
         return array_diff(
             array_keys($this->object),
             [
+                'address',
                 'addresses',
                 'phones',
+                'address_id',
+                'phone_id',
             ]
         );
     }

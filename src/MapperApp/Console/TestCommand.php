@@ -181,7 +181,38 @@ class TestCommand extends Command
 
     private function doUpdate(InputInterface $input, OutputInterface $output)
     {
+        $output->writeln('Updating person name & address line 1');
 
+        $this->personMapper->getDbAdapter()->query('START TRANSACTION', Adapter::QUERY_MODE_EXECUTE);
+
+        // this is a horrible way to force the mapper to do a join.
+        $results = $this->personMapper->findAllBy(['address_id' => ['addresses.id', '>', 0]]);
+
+        // make map to inject addresses
+        $map = [];
+        foreach ($results as $r) {
+            $map[$r->getAddressId()] = $r;
+        }
+        $addresses = $this->addressMapper->findAll();
+        foreach ($addresses as $address) {
+            $map[$address->getId()]->setAddress($address);
+        }
+
+        $namePrefix = sha1(microtime());
+
+        $start = microtime(true);
+        foreach ($results as $p) {
+            $p->setFirstName($namePrefix.$p->getId());
+            $this->personMapper->update($p);
+            $a = $this->addressMapper->findById($p->getAddressId());
+            $a->setLine1($namePrefix.$a->getId());
+            $this->addressMapper->update($a);
+        }
+        $this->personMapper->getDbAdapter()->query('COMMIT', Adapter::QUERY_MODE_EXECUTE);
+
+        $end = microtime(true);
+        $diff = $end-$start;
+        $output->writeln('Took '.$diff.'s');
     }
 
     private function doDelete(InputInterface $input, OutputInterface $output)
