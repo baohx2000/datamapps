@@ -9,8 +9,9 @@
       "url":"https://github.com/baohx2000/doc"
     }
   ],
+  "prefer-stable": true,
   "require": {
-    "baohx2000/doc" : "dev-master",
+    "baohx2000/doc" : "~0",
     "synapsestudios/synapse-base": "v2.0.0"
   }
 }
